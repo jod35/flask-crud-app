@@ -1,0 +1,10 @@
+main{
+    min-height: 100vh;
+}
+.container{
+    margin-top: 100px;
+}
+.form{
+    width: 50%;
+    margin: auto;
+}

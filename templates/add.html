@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form">
+       
+       {% with messages =get_flashed_messages() %}
+       {% if messages %}
+      
+       {% for message in messages %}
+           <p class="alert alert-danger">
+               {{message}}
+           </p>
+       {% endfor %}
+           
+   {% endif %}
+       {% endwith %}
+           
+        <form action="/add" method="post">
+            <h3>Add An Employee</h3>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="John Doe">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                <input name="phone_number"  type="tel" class="form-control" id="exampleFormControlInput1" placeholder="12344567890">
+              </div>
+              <div class="mb3">
+                  <input type="submit" class="btn btn-primary" value="Add">
+              </div>
+        
+        </form>
+    </div>
+{% endblock content %}
+    

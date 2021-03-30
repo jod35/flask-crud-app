@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1>List of employees</h1>
+  {% with messages =get_flashed_messages() %}
+  {% if messages %}
+ 
+  {% for message in messages %}
+      <p class="alert alert-success">
+          {{message}}
+      </p>
+  {% endfor %}
+      
+{% endif %}
+  {% endwith %}
+  {% if employees %}    
+  <table class="table table-dark table-striped">
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+      <tr>
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone_number}}</td>
+        <td>
+            <a href="/update/{{employee.id}}" class="btn btn-primary">Update</a>
+            <a href="/delete/{{employee.id}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    There are no employees. <a href="/add">Add An Employee</a>
+  {% endif %}
+</div>
+{% endblock content %}
