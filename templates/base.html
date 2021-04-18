@@ -14,7 +14,14 @@
           <a class="navbar-brand" href="/">Home</a>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link " href="/add" tabindex="-1">Add Employee</a>
+              
+              {% if current_user.is_authenticated %}
+                  <a class="nav-link " href="/add" tabindex="-1">Add Employee</a>
+                  <a href="{{ url_for('logout') }}" class="nav-link">Log out</a>
+              {% else %}   
+                  <a href="{{url_for('register')}}" class="nav-link">Sign Up</a>
+                  <a href="{{url_for('login')}}" class="nav-link">Login</a>
+              {% endif %}
             </div>
           </div>
         </div>

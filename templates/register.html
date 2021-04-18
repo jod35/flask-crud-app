@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="form">
+       
+       {% with messages =get_flashed_messages() %}
+       {% if messages %}
+      
+       {% for message in messages %}
+           <p class="alert alert-danger">
+               {{message}}
+           </p>
+       {% endfor %}
+           
+   {% endif %}
+       {% endwith %}
+           
+        <form action="{{url_for('register')}}" method="post">
+            <h3>Create Your Account</h3>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" name="username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Email">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input name="password"  type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                <input name="confirm"  type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+              </div>
+
+              <div class="mb3">
+                  <input type="submit" class="btn btn-primary" value="Add">
+              </div>
+        
+        </form>
+    </div>
+{% endblock content %}
+    
